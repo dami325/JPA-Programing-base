@@ -8,7 +8,7 @@
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/jpashop"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/jpashop2"/>
 
             <!-- 데이터베이스 방언 (Oracle로 설정시 varchar2로 생성됨)-->
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
