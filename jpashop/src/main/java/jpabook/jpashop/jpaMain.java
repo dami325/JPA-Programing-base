@@ -1,9 +1,6 @@
 package jpabook.jpashop;
 
-import jpabook.jpashop.domain.Book;
-import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.domain.Order;
-import jpabook.jpashop.domain.OrderItem;
+import jpabook.jpashop.domain.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -26,16 +23,14 @@ public class jpaMain {
 
         try {
 
-            CriteriaBuilder cb = em.getCriteriaBuilder();
-            CriteriaQuery<Member> query = cb.createQuery(Member.class);
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("김영한");
 
-            Root<Member> m = query.from(Member.class);
+            em.persist(book);
 
-            CriteriaQuery<Member> cq = query.select(m).where(cb.equal(m.get("name"), "kim"));
-
-            List<Member> resultList = em.createQuery(cq)
-                    .getResultList();
-
+            em.createQuery("select i from Item i where type(i) = Book", Item.class)
+                            .getResultList();
 
             tx.commit();
         } catch (Exception e) {
